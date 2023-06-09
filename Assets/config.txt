@@ -1,0 +1,4 @@
+APIKey=
+AutoBrainwashing=1
+AutoBrainwashingNum=3
+OtherAPIUrl=https://api.openai-proxy.com/v1/chat/completions
