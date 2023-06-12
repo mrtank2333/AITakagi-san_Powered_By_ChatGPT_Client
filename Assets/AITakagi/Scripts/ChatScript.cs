@@ -97,11 +97,6 @@ public class ChatScript : MonoBehaviour
     //发送信息
     public void SendData()
     {
-        if (m_VITS_Player.getLan().Equals(""))
-        {
-            Debug.Log("m_VITS_Player.getLan() Is NullorBlank");
-            m_VITS_Player.SetChangeLan("中文");
-        }
         //输入信息验证
         m_InputMsgValidate.InputMsgValidate(m_InputWord.text);
         m_InputWord.text = m_InputMsgValidate.getInputMsgs();

@@ -23,7 +23,11 @@ public class Service : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (m_VITS_Player.getLan().Equals(""))
+        {
+            Debug.Log("m_VITS_Player.getLan() Is NullorBlank");
+            m_VITS_Player.SetChangeLan("ÖÐÎÄ");
+        }
     }
 
     // Update is called once per frame

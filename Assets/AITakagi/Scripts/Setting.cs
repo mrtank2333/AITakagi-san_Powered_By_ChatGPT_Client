@@ -39,13 +39,38 @@ public class Setting : MonoBehaviour
 
     public string linkMode = "0";
 
+
     private void Start()
     {
-        configFile = Application.dataPath + "\\config.txt";
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            configFile = Application.persistentDataPath + "/Config.txt";
+            if (!File.Exists(configFile))
+            {
+                WWW loadWWW = new WWW(configFile);
+                while (!loadWWW.isDone)
+                {
+
+                }
+                File.WriteAllBytes(configFile, loadWWW.bytes);
+                File.WriteAllText(configFile,
+                    "APIKey=" + "" +
+                    "\nAutoBrainwashing=" + "1" +
+                    "\nAutoBrainwashingNum=" + "3" +
+                    "\nOtherAPIUrl=" + "https://api.openai-proxy.com/v1/chat/completions");
+            }
+            GetConfig();
+        }
+        else
+        {
+            configFile = Application.dataPath + "\\config.txt";
 #if !UNITY_EDITOR
         configFile = System.Environment.CurrentDirectory + "/config.txt";
 #endif
-        GetConfig();
+
+            GetConfig();
+        }
+
         //string m = MachineCode.GetMachineCodeString();
         //Debug.Log(m);
         
@@ -57,14 +82,6 @@ public class Setting : MonoBehaviour
     }
     private void GetConfig()
     {
-        //string configFile = Application.dataPath + "/config.txt";
-
-
-        //FileStream SaveApi = new FileStream("configFile", FileMode.OpenOrCreate);
-
-        // 使用dataPath得到游戏的“当前”路径
-        // 1. 在unity 编辑器里面运行，配置文件放在在Assets文件夹下，使用CurrentDirectory来获取Assets目录路径，进而获取配置文件
-        // 2. 将游戏打包成exe后，Application.dataPath指向exe同级目录，所以需要在exe同级目录再放一个配置文件供读写（Windows）
 
         if (File.Exists(configFile))
         {
