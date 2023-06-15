@@ -42,7 +42,7 @@ namespace Live2D.Cubism.Editor.Inspectors
 
             texture.Size = EditorGUILayout.IntField("Size (In Pixels)", texture.Size);
             texture.Subdivisions = EditorGUILayout.IntSlider("Subdivisions", texture.Subdivisions, 1, 5);
-            EditorGUILayout.ObjectField("Render Texture (Read-only)", (RenderTexture) texture, typeof(RenderTexture), false);
+            EditorGUILayout.ObjectField("Render Texture (Read-only)", (RenderTexture)texture, typeof(RenderTexture), false);
 
 
             // Save any changes.

@@ -41,7 +41,7 @@ namespace Live2D.Cubism.Framework
             var sortedComponents = new List<ICubismUpdatable>(components);
             CubismUpdateExecutionOrder.SortByExecutionOrder(sortedComponents);
 
-            foreach(var component in sortedComponents)
+            foreach (var component in sortedComponents)
             {
 #if UNITY_EDITOR
                 if (!Application.isPlaying && !component.NeedsUpdateOnEditing)
@@ -70,7 +70,7 @@ namespace Live2D.Cubism.Framework
         private void LateUpdate()
         {
             // Cubism late update.
-            if(_onLateUpdate != null)
+            if (_onLateUpdate != null)
             {
                 _onLateUpdate();
             }

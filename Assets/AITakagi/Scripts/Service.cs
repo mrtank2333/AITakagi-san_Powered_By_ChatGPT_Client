@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,7 +32,7 @@ public class Service : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     /// <summary>
     /// 随机播放模式
@@ -42,8 +41,8 @@ public class Service : MonoBehaviour
     {
         List<Tuple<string, string>> musicName = m_MusicPlayer.getRandomMusicName();
         m_ChatScript.m_ChatHistory.Add("播放随机音乐");
-       /* UnloadAsset(m_MusicPlayer.audioClip); 
-        m_MusicPlayer.audioClip = Resources.Load<AudioClip>("Music/" + musicName[0].Item1);*/
+        /* UnloadAsset(m_MusicPlayer.audioClip); 
+         m_MusicPlayer.audioClip = Resources.Load<AudioClip>("Music/" + musicName[0].Item1);*/
         m_MusicPlayer.Sts = "0";
         m_SendText.SetActive(false);
         m_PostGUI.SetActive(true);
@@ -55,7 +54,7 @@ public class Service : MonoBehaviour
         if (播放次数 == 0)
         {
 
-            
+
             if (m_VITS_Player.langString.Equals("中文"))
             {
                 m_ChatScript.CallBack("好的，那我为你唱一首《" + musicNameCN + "》吧");

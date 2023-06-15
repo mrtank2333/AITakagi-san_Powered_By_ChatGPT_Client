@@ -8,7 +8,6 @@
 
 using Live2D.Cubism.Core.Unmanaged;
 using Live2D.Cubism.Framework;
-using UnityEngine;
 
 
 namespace Live2D.Cubism.Core

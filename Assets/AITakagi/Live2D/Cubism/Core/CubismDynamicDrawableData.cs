@@ -77,7 +77,7 @@ namespace Live2D.Cubism.Core
         /// <summary>
         /// Current multiply color.
         /// </summary>
-        public Color MultiplyColor{ get; internal set; }
+        public Color MultiplyColor { get; internal set; }
 
         /// <summary>
         /// Current screen color.

@@ -128,7 +128,7 @@ namespace Live2D.Cubism.Framework.MouthMovement
         /// </summary>
         private void LateUpdate()
         {
-            if(!HasUpdateController)
+            if (!HasUpdateController)
             {
                 OnLateUpdate();
             }

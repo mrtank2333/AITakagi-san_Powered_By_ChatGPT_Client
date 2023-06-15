@@ -6,7 +6,6 @@
  */
 
 
-using Live2D.Cubism.Core;
 using UnityEngine;
 
 

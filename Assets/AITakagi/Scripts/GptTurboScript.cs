@@ -2,7 +2,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -13,7 +12,7 @@ public class GptTurboScript : MonoBehaviour
     /// api地址（官方版）
     /// </summary>
     public string m_ApiUrl = "https://api.openai.com/v1/chat/completions";
-    
+
     /*
     public string m_ApiUrl_backup1 = "http://127.0.0.1:8000/chat/completions";
     public string m_ApiUrl_backup2 = "https://api.openai-proxy.com/v1/chat/completions";
@@ -32,7 +31,7 @@ public class GptTurboScript : MonoBehaviour
     /// <summary>
     /// 缓存对话
     /// </summary>
-    [SerializeField]public List<SendData> m_DataList = new List<SendData>();
+    [SerializeField] public List<SendData> m_DataList = new List<SendData>();
     /// <summary>
     /// AI人设中文1
     /// </summary>
@@ -69,9 +68,9 @@ public class GptTurboScript : MonoBehaviour
     /// <param name="_openAI_Key"></param>
     /// <param name="_callback"></param>
     /// <returns></returns>
-    public IEnumerator GetPostData(string _postWord,string _openAI_Key, System.Action<string> _callback)
+    public IEnumerator GetPostData(string _postWord, string _openAI_Key, System.Action<string> _callback)
     {
- 
+
         //洗脑模式;
         if (m_ChatScript.IsBrainwashing)
         {
@@ -146,9 +145,6 @@ public class GptTurboScript : MonoBehaviour
                     _callback(m_Msg_Validate.checkChatGPTError(request.responseCode));
                 }
 
-
-
-
                 /*//白嫖模式非拒绝访问或直连模式所有的错误重发
                 if (m_Setting.linkMode.Equals("0") && 直连模式重发次数 <= 3)
                 {
@@ -162,16 +158,15 @@ public class GptTurboScript : MonoBehaviour
                     直连模式重发次数 = 0;
                 }*/
 
-
-                
                 Debug.Log("ChatGPT错误" + request.responseCode);
             }
-            
+
         }
 
 
     }
 
+    //遇到错误时候尝试再发送信息
     private void ReGetPostData(System.Action<string> _callback)
     {
         //洗脑模式;
@@ -205,8 +200,10 @@ public class GptTurboScript : MonoBehaviour
 
     #region 数据包
 
-    [Serializable]public class PostData
+    [Serializable]
+    public class PostData
     {
+        //默认是：text-davinci-003
         public string model;
         public List<SendData> messages;
     }
@@ -217,7 +214,8 @@ public class GptTurboScript : MonoBehaviour
         public string role;
         public string content;
         public SendData() { }
-        public SendData(string _role,string _content) {
+        public SendData(string _role, string _content)
+        {
             role = _role;
             content = _content;
         }

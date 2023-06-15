@@ -1,11 +1,10 @@
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using UnityEngine.Networking;
-using static VITS_Speech;
-using System;
 
 public class VITS_Speech : MonoBehaviour
 {
@@ -67,7 +66,7 @@ public class VITS_Speech : MonoBehaviour
         {
             Debug.Log(langString + "m_ChatScript.langString is Null");
         }
-        
+
     }
 
     /// <summary>
@@ -110,7 +109,7 @@ public class VITS_Speech : MonoBehaviour
     /// </summary>
     /// <param name="filePath"></param>
     /// <returns></returns>
-   private IEnumerator LoadAudioClip(string filePath)
+    private IEnumerator LoadAudioClip(string filePath)
     {
         string url = "file://" + filePath; // 组成URL
         UnityWebRequest www = UnityWebRequestMultimedia.GetAudioClip(url, AudioType.WAV); // 发送请求
@@ -135,16 +134,17 @@ public class VITS_Speech : MonoBehaviour
     /// <summary>
     /// 合成设置
     /// </summary>
-    [System.Serializable]public class SendDataSetting
+    [System.Serializable]
+    public class SendDataSetting
     {
         /// <summary>
         /// 语言
         /// </summary>
-        [Header("语言")]public Lan lan= Lan.中文;
+        [Header("语言")] public Lan lan = Lan.中文;
         /// <summary>
         /// 声音
         /// </summary>
-        [Header("声音")] public string speeker= "胡桃";
+        [Header("声音")] public string speeker = "takagi3";
         /// <summary>
         /// 控制感情变化程度
         /// </summary>
@@ -156,7 +156,7 @@ public class VITS_Speech : MonoBehaviour
         /// <summary>
         /// 控制整体语速
         /// </summary>
-        [Header("控制整体语速")]public float length_scale;
+        [Header("控制整体语速")] public float length_scale;
     }
 
     public enum Lan

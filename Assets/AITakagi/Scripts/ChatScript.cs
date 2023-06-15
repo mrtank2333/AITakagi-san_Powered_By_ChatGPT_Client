@@ -1,25 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.UI;
-using System.IO;
-using File = System.IO.File;
-using System.Diagnostics;
-using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
-using UnityEngine.UIElements;
-using System;
 
 public class ChatScript : MonoBehaviour
 {
-    //API key
-    //[SerializeField] private string m_OpenAI_Key = "填写你的Key";
-    // 定义Chat API的URL
-    ///private string m_ApiUrl = "https://api.openai.com/v1/completions";
     //配置参数
-    [SerializeField] private GetOpenAI.PostData m_PostDataSetting;
+    //[SerializeField] private GetOpenAI.PostData m_PostDataSetting;
     //聊天UI层
     [SerializeField] private GameObject m_ChatPanel;
     //输入的信息
@@ -46,12 +34,12 @@ public class ChatScript : MonoBehaviour
     [SerializeField] private Service m_Service;
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        
+
     }
     void OnGUI()
     {
@@ -71,7 +59,7 @@ public class ChatScript : MonoBehaviour
 
     //回复次数计数器
     private int sendNum = 0;
- 
+
     //触发洗脑
     public bool IsBrainwashing = false;
     //洗脑前最后的消息
@@ -210,7 +198,7 @@ public class ChatScript : MonoBehaviour
                 }
             }
         }
-        Debug.Log("发送次数："+getSendNum());
+        Debug.Log("发送次数：" + getSendNum());
         StartCoroutine(m_GptTurboScript.GetPostData(_msg, m_Setting.getApikey(), CallBack));
         m_InputWord.text = "";
         m_TextBack.text = "...";
@@ -296,7 +284,7 @@ public class ChatScript : MonoBehaviour
         ClearChatBox();
         StartCoroutine(GetHistoryChatInfo());
     }
-    
+
     //返回
     public void BackChatMode()
     {
@@ -420,7 +408,8 @@ public class ChatScript : MonoBehaviour
     /// <summary>
     /// <br>设置催眠语句选用的语言是日语</br>
     /// </summary>
-    public void setInitializing_Hypnosis_StatementsIsJPN() {
+    public void setInitializing_Hypnosis_StatementsIsJPN()
+    {
         this.initializing_Hypnosis_StatementsIsJPN = true;
     }
     /// <summary>
@@ -448,53 +437,4 @@ public class ChatScript : MonoBehaviour
         IsRandomPlaying = true;
         m_Service.StartRandomPlay();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*#region 切换妹子
-    //Lo娘
-    [SerializeField] private GameObject m_LoGirl;
-    [SerializeField] private GameObject m_Girl;
-
-    //
-    public void SetLoGirlShowed(GameObject _settingPanel)
-    {
-        if (!m_LoGirl.activeSelf)
-        {
-            m_LoGirl.SetActive(true);
-            m_Girl.SetActive(false);
-        }
-        //m_AzurePlayer.SetSound("zh-CN-XiaoyiNeural");
-
-        _settingPanel.SetActive(false);
-    }
-    //zh-CN-XiaoxiaoNeural
-    public void SetGirlShowed(GameObject _settingPanel)
-    {
-        if (!m_Girl.activeSelf)
-        {
-            m_LoGirl.SetActive(false);
-            m_Girl.SetActive(true);
-        }
-        //m_AzurePlayer.SetSound("zh-CN-liaoning-XiaobeiNeural");
-
-        _settingPanel.SetActive(false);
-    }
-
-    #endregion*/
-
 }

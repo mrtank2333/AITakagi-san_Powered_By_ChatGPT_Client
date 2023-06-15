@@ -91,26 +91,26 @@ namespace Live2D.Cubism.Framework.MouthMovement
             switch (SamplingQuality)
             {
                 case (CubismAudioSamplingQuality.VeryHigh):
-                {
+                    {
                         Samples = new float[256];
 
 
                         break;
                     }
                 case (CubismAudioSamplingQuality.Maximum):
-                {
-                    Samples = new float[512];
+                    {
+                        Samples = new float[512];
 
 
-                    break;
-                }
+                        break;
+                    }
                 default:
-                {
-                    Samples = new float[256];
+                    {
+                        Samples = new float[256];
 
 
-                    break;
-                }
+                        break;
+                    }
             }
 
 

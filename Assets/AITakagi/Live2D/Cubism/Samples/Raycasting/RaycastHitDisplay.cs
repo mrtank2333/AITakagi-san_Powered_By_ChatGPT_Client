@@ -6,9 +6,9 @@
  */
 
 
-using UnityEngine;
 using Live2D.Cubism.Core;
 using Live2D.Cubism.Framework.Raycasting;
+using UnityEngine;
 
 
 namespace Live2D.Cubism.Samples.Raycasting

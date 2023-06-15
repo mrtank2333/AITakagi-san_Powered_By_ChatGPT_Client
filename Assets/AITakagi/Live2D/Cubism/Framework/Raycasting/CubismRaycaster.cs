@@ -182,7 +182,7 @@ namespace Live2D.Cubism.Framework.Raycasting
         /// <returns></returns>
         private bool ContainsInTriangles(Mesh mesh, Vector3 inputPosition)
         {
-            for (var i = 0; i < mesh.triangles.Length; i+=3)
+            for (var i = 0; i < mesh.triangles.Length; i += 3)
             {
                 var vertexPositionA = mesh.vertices[mesh.triangles[i]];
                 var vertexPositionB = mesh.vertices[mesh.triangles[i + 1]];

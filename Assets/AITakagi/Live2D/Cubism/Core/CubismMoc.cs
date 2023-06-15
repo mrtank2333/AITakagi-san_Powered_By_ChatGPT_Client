@@ -145,7 +145,7 @@ namespace Live2D.Cubism.Core
         /// </summary>
         public void ReleaseUnmanagedMoc()
         {
-            -- ReferenceCount;
+            --ReferenceCount;
 
 
             // Release instance of unmanaged moc in case the instance isn't referenced any longer.

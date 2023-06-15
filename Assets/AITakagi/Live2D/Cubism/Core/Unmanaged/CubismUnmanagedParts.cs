@@ -56,7 +56,7 @@ namespace Live2D.Cubism.Core.Unmanaged
 
             length = CubismCoreDll.GetPartCount(modelPtr);
             Ids = new string[length];
-            var _ids = (IntPtr *)(CubismCoreDll.GetPartIds(modelPtr));
+            var _ids = (IntPtr*)(CubismCoreDll.GetPartIds(modelPtr));
             for (var i = 0; i < length; ++i)
             {
                 Ids[i] = Marshal.PtrToStringAnsi(_ids[i]);

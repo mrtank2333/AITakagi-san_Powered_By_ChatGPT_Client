@@ -147,7 +147,7 @@ namespace Live2D.Cubism.Framework.Json
             var segments = curve.Segments;
             var segmentsCount = 2;
 
-            for(var index = 2; index < curve.Segments.Length; index += 3)
+            for (var index = 2; index < curve.Segments.Length; index += 3)
             {
                 // if current segment type is stepped and
                 // next segment type is stepped or next segment is last segment
@@ -156,7 +156,7 @@ namespace Live2D.Cubism.Framework.Json
                 var currentSegmentIsLast = (index == (curve.Segments.Length - 3));
                 var nextSegmentTypeIsStepped = (currentSegmentIsLast) ? false : (curve.Segments[index + 3] == 2);
                 var nextSegmentIsLast = (currentSegmentIsLast) ? false : ((index + 3) == (curve.Segments.Length - 3));
-                if ( currentSegmentTypeIsStepped && (nextSegmentTypeIsStepped || nextSegmentIsLast) )
+                if (currentSegmentTypeIsStepped && (nextSegmentTypeIsStepped || nextSegmentIsLast))
                 {
                     Array.Resize(ref segments, segments.Length + 3);
                     segments[segmentsCount + 0] = 0;
@@ -167,7 +167,7 @@ namespace Live2D.Cubism.Framework.Json
                     segments[segmentsCount + 5] = curve.Segments[index + 2];
                     segmentsCount += 6;
                 }
-                else if(curve.Segments[index] == 1)
+                else if (curve.Segments[index] == 1)
                 {
                     segments[segmentsCount + 0] = curve.Segments[index + 0];
                     segments[segmentsCount + 1] = curve.Segments[index + 1];

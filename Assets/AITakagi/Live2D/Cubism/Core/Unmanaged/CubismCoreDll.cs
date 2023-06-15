@@ -178,7 +178,7 @@ namespace Live2D.Cubism.Core.Unmanaged
         /// Gets parameter IDs.
         /// </summary>
         [DllImport(DllName, EntryPoint = "csmGetParameterIds")]
-        public static extern unsafe char ** GetParameterIds(IntPtr model);
+        public static extern unsafe char** GetParameterIds(IntPtr model);
         /// <summary>
         /// Gets minimum parameter values.
         /// </summary>
@@ -223,7 +223,7 @@ namespace Live2D.Cubism.Core.Unmanaged
         /// Gets part IDs.
         /// </summary>
         [DllImport(DllName, EntryPoint = "csmGetPartIds")]
-        public static extern unsafe char ** GetPartIds(IntPtr model);
+        public static extern unsafe char** GetPartIds(IntPtr model);
         /// <summary>
         /// Gets opacity values.
         /// </summary>
@@ -243,7 +243,7 @@ namespace Live2D.Cubism.Core.Unmanaged
         /// Gets drawable IDs.
         /// </summary>
         [DllImport(DllName, EntryPoint = "csmGetDrawableIds")]
-        public static extern unsafe char ** GetDrawableIds(IntPtr model);
+        public static extern unsafe char** GetDrawableIds(IntPtr model);
         /// <summary>
         /// Gets constant drawable flags.
         /// </summary>

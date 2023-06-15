@@ -6,13 +6,13 @@
  */
 
 
+using Live2D.Cubism.Core;
 using Live2D.Cubism.Framework.Expression;
 using Live2D.Cubism.Framework.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Live2D.Cubism.Core;
 using UnityEditor;
 using UnityEngine;
 
@@ -30,12 +30,12 @@ namespace Live2D.Cubism.Editor.Importers
         {
             get
             {
-                if(_expressionJson != null)
+                if (_expressionJson != null)
                 {
                     return _expressionJson;
                 }
 
-                if(string.IsNullOrEmpty(AssetPath))
+                if (string.IsNullOrEmpty(AssetPath))
                 {
                     return null;
                 }
@@ -74,7 +74,7 @@ namespace Live2D.Cubism.Editor.Importers
             // Create expression data.
             CubismExpressionData expressionData;
 
-            if(oldExpressionData == null)
+            if (oldExpressionData == null)
             {
                 expressionData = CubismExpressionData.CreateInstance(ExpressionJson);
                 AssetDatabase.CreateAsset(expressionData, AssetPath.Replace(".exp3.json", ".exp3.asset"));
@@ -168,7 +168,7 @@ namespace Live2D.Cubism.Editor.Importers
                 return;
             }
 
-            var modelDir = Path.GetDirectoryName(importer.AssetPath).Replace("\\","/");
+            var modelDir = Path.GetDirectoryName(importer.AssetPath).Replace("\\", "/");
             var modelName = Path.GetFileName(modelDir);
             var expressionListPath = modelDir + "/" + modelName + ".expressionList.asset";
 

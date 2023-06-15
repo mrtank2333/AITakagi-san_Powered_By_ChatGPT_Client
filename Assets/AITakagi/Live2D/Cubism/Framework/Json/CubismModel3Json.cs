@@ -222,7 +222,7 @@ namespace Live2D.Cubism.Framework.Json
         {
             get
             {
-                if(_pose3Json != null)
+                if (_pose3Json != null)
                 {
                     return _pose3Json;
                 }
@@ -250,7 +250,7 @@ namespace Live2D.Cubism.Framework.Json
             get
             {
                 // Fail silently...
-                if(FileReferences.Expressions == null)
+                if (FileReferences.Expressions == null)
                 {
                     return null;
                 }
@@ -401,7 +401,7 @@ namespace Live2D.Cubism.Framework.Json
 
             var drawables = model.Drawables;
 
-            if (renderers == null || drawables  == null)
+            if (renderers == null || drawables == null)
             {
                 return null;
             }
@@ -421,7 +421,7 @@ namespace Live2D.Cubism.Framework.Json
 
 
             // Initialize drawables.
-            if(HitAreas != null)
+            if (HitAreas != null)
             {
                 for (var i = 0; i < HitAreas.Length; i++)
                 {
@@ -516,12 +516,12 @@ namespace Live2D.Cubism.Framework.Json
             }
 
             // Add original workflow component if is original workflow.
-            if(shouldImportAsOriginalWorkflow)
+            if (shouldImportAsOriginalWorkflow)
             {
                 // Add cubism update manager.
                 var updateManager = model.gameObject.GetComponent<CubismUpdateController>();
 
-                if(updateManager == null)
+                if (updateManager == null)
                 {
                     model.gameObject.AddComponent<CubismUpdateController>();
                 }
@@ -529,7 +529,7 @@ namespace Live2D.Cubism.Framework.Json
                 // Add parameter store.
                 var parameterStore = model.gameObject.GetComponent<CubismParameterStore>();
 
-                if(parameterStore == null)
+                if (parameterStore == null)
                 {
                     parameterStore = model.gameObject.AddComponent<CubismParameterStore>();
                 }
@@ -537,7 +537,7 @@ namespace Live2D.Cubism.Framework.Json
                 // Add pose controller.
                 var poseController = model.gameObject.GetComponent<CubismPoseController>();
 
-                if(poseController == null)
+                if (poseController == null)
                 {
                     poseController = model.gameObject.AddComponent<CubismPoseController>();
                 }
@@ -545,7 +545,7 @@ namespace Live2D.Cubism.Framework.Json
                 // Add expression controller.
                 var expressionController = model.gameObject.GetComponent<CubismExpressionController>();
 
-                if(expressionController == null)
+                if (expressionController == null)
                 {
                     expressionController = model.gameObject.AddComponent<CubismExpressionController>();
                 }
@@ -554,7 +554,7 @@ namespace Live2D.Cubism.Framework.Json
                 // Add fade controller.
                 var motionFadeController = model.gameObject.GetComponent<CubismFadeController>();
 
-                if(motionFadeController == null)
+                if (motionFadeController == null)
                 {
                     motionFadeController = model.gameObject.AddComponent<CubismFadeController>();
                 }
@@ -707,7 +707,7 @@ namespace Live2D.Cubism.Framework.Json
                     continue;
                 }
 
-                if(Groups[i].Ids != null)
+                if (Groups[i].Ids != null)
                 {
                     for (var j = 0; j < Groups[i].Ids.Length; ++j)
                     {

@@ -1,47 +1,43 @@
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Msg_Validate : MonoBehaviour
 {
-    //VITSÓïÒô
+    //VITSè¯­éŸ³
     [SerializeField] private VITS_Speech m_VITS_Player;
-    //ÒôÀÖ²¥·ÅÆ÷
+    //éŸ³ä¹æ’­æ”¾å™¨
     [SerializeField] private MusicPlayer m_MusicPlayer;
-    //ÒôÀÖ²¥·ÅÆ÷
+    //éŸ³ä¹æ’­æ”¾å™¨
     [SerializeField] private ChatScript m_ChatScript;
-    //·µ»ØµÄĞÅÏ¢
+    //è¿”å›çš„ä¿¡æ¯
     [SerializeField] private Text m_TextBack;
-    //·şÎñ
+    //æœåŠ¡
     [SerializeField] private Service m_Service;
 
     public string inputMsgs;
     public string outputMsgs;
     /// <summary>
-    ///ÕıÔÚÊä³öÎÄ×ÖĞÅÏ¢ÒôÆµ
+    ///æ­£åœ¨è¾“å‡ºæ–‡å­—ä¿¡æ¯éŸ³é¢‘
     /// </summary>
     public bool IsPlayingMsg = false;
     /// <summary>
-    ///ÕıÔÚÖğ×ÖÊä³öÁÄÌì¿òÎÄ×ÖĞÅÏ¢
+    ///æ­£åœ¨é€å­—è¾“å‡ºèŠå¤©æ¡†æ–‡å­—ä¿¡æ¯
     /// </summary>
     public bool IsOutputTextMsg = false;
     /// <summary>
-    ///»Ø¸´ĞÅÏ¢ÒôÆµÕıÔÚºÏ³É
+    ///å›å¤ä¿¡æ¯éŸ³é¢‘æ­£åœ¨åˆæˆ
     /// </summary>
     public bool IsOutputWAVEncoding = false;
     /// <summary>
-    ///ÕıÔÚ²¥·ÅÒôÀÖ
+    ///æ­£åœ¨æ’­æ”¾éŸ³ä¹
     /// </summary>
     public bool IsPlayingMusic = false;
-/*    /// <summary>
-    ///ÕıÔÚ²¥·ÅÖ¸¶¨ÒôÀÖ
-    /// </summary>
-    public bool IsSelectPlaying = false;*/
+    /*    /// <summary>
+        ///æ­£åœ¨æ’­æ”¾æŒ‡å®šéŸ³ä¹
+        /// </summary>
+        public bool IsSelectPlaying = false;*/
     void Start()
     {
 
@@ -54,8 +50,8 @@ public class Msg_Validate : MonoBehaviour
     }
 
     /// <summary>
-    /// ChatGPTÍøÂçÎÊÌâ»Ø¸´ĞÅÏ¢ÉèÖÃ
-    /// return ´íÎóĞÅÏ¢
+    /// ChatGPTç½‘ç»œé—®é¢˜å›å¤ä¿¡æ¯è®¾ç½®
+    /// return é”™è¯¯ä¿¡æ¯
     /// </summary>
     public string checkChatGPTError(long responseCode)
     {
@@ -64,74 +60,74 @@ public class Msg_Validate : MonoBehaviour
         if (responseCode == 401)
         {
             Debug.Log(responseCode);
-            if (lang.Equals("ÖĞÎÄ"))
+            if (lang.Equals("ä¸­æ–‡"))
             {
-                _callback = "ÄãµÄApi¿ÉÄÜÓĞÎÊÌâÄØ" + "    ·µ»Ø´úÂë:" + responseCode;
+                _callback = "ä½ çš„Apiå¯èƒ½æœ‰é—®é¢˜å‘¢" + "    è¿”å›ä»£ç :" + responseCode;
             }
-            else if (lang.Equals("ÈÕÓï"))
+            else if (lang.Equals("æ—¥è¯­"))
             {
-                _callback = "¤¢¤Ê¤¿¤ÎAPI¤¬†–î}¤¬¤¢¤ê¤½¤¦¤Ê¸Ğ¤¸¤À¤è¤Í" + "    ‘ø¤¹¥³©`¥É:" + responseCode;
+                _callback = "ã‚ãªãŸã®APIãŒå•é¡ŒãŒã‚ã‚Šãã†ãªæ„Ÿã˜ã ã‚ˆã­" + "    æˆ»ã™ã‚³ãƒ¼ãƒ‰:" + responseCode;
             }
         }
         else if (responseCode == 400)
         {
             Debug.Log(responseCode);
-            if (lang.Equals("ÖĞÎÄ"))
+            if (lang.Equals("ä¸­æ–‡"))
             {
-                _callback = "ÄãÎÊµÄÌ«¶àÁË£¬ÎÒÍ·ÓĞµãÔÎ£¬Çë°´ÓÒÉÏ½ÇµÄÇåÀíÍ¼±êÇå¿Õ»á»°ÔÙÊÔÊÔ" + "    ·µ»Ø´úÂë:" + responseCode;
+                _callback = "ä½ é—®çš„å¤ªå¤šäº†ï¼Œæˆ‘å¤´æœ‰ç‚¹æ™•ï¼Œè¯·æŒ‰å³ä¸Šè§’çš„æ¸…ç†å›¾æ ‡æ¸…ç©ºä¼šè¯å†è¯•è¯•" + "    è¿”å›ä»£ç :" + responseCode;
             }
-            else if (lang.Equals("ÈÕÓï"))
+            else if (lang.Equals("æ—¥è¯­"))
             {
-                _callback = "Ù|†–¤¬¶à¤¹¤®¤Æ¡¢¤Á¤ç¤Ã¤Èî^¤¬Í´¤¤¡£ÓÒÉÏ¤Î¥¯¥ê©`¥ó¥¢¥¤¥³¥ó¤òÑº¤·¤Æ»á»°¤ò¥¯¥ê¥¢¤·¤Æ¤¤¤¤£¿" + "    ‘ø¤¹¥³©`¥É:" + responseCode;
+                _callback = "è³ªå•ãŒå¤šã™ãã¦ã€ã¡ã‚‡ã£ã¨é ­ãŒç—›ã„ã€‚å³ä¸Šã®ã‚¯ãƒªãƒ¼ãƒ³ã‚¢ã‚¤ã‚³ãƒ³ã‚’æŠ¼ã—ã¦ä¼šè¯ã‚’ã‚¯ãƒªã‚¢ã—ã¦ã„ã„ï¼Ÿ" + "    æˆ»ã™ã‚³ãƒ¼ãƒ‰:" + responseCode;
             }
         }
         else if (responseCode == 404)
         {
             Debug.Log(responseCode);
-            if (lang.Equals("ÖĞÎÄ"))
+            if (lang.Equals("ä¸­æ–‡"))
             {
-                _callback = "ÄãµÄÍøÂç¿ÉÄÜÃ»·¨·ÃÎÊChatGPTÄØ" + "    ·µ»Ø´úÂë:" + responseCode;
+                _callback = "ä½ çš„ç½‘ç»œå¯èƒ½æ²¡æ³•è®¿é—®ChatGPTå‘¢" + "    è¿”å›ä»£ç :" + responseCode;
             }
-            else if (lang.Equals("ÈÕÓï"))
+            else if (lang.Equals("æ—¥è¯­"))
             {
-                _callback = "¤¢¤Ê¤¿¤Î¥Í¥Ã¥È­h¾³¤¬¥Á¥ã¥Ã¥ÈGPT¤Ë½Ó¾A¤Ç¤­¤Ê¤«¤Ã¤¿" + "    ‘ø¤¹¥³©`¥É:" + responseCode;
+                _callback = "ã‚ãªãŸã®ãƒãƒƒãƒˆç’°å¢ƒãŒãƒãƒ£ãƒƒãƒˆGPTã«æ¥ç¶šã§ããªã‹ã£ãŸ" + "    æˆ»ã™ã‚³ãƒ¼ãƒ‰:" + responseCode;
             }
 
         }
         else if (responseCode == 500)
         {
             Debug.Log(responseCode);
-            if (lang.Equals("ÖĞÎÄ"))
+            if (lang.Equals("ä¸­æ–‡"))
             {
-                _callback = "ChatGPTÄÇ¸ö±¿µ°ºÃÏñ×Ô¼º³öÎÊÌâÁË£¬ÎÒÃ»·¨Á¬½ÓËü¡£ÇëµÈÒ»»áÔÚÕÒÎÒ°É" + "    ·µ»Ø´úÂë:" + responseCode;
+                _callback = "ChatGPTé‚£ä¸ªç¬¨è›‹å¥½åƒè‡ªå·±å‡ºé—®é¢˜äº†ï¼Œæˆ‘æ²¡æ³•è¿æ¥å®ƒã€‚è¯·ç­‰ä¸€ä¼šåœ¨æ‰¾æˆ‘å§" + "    è¿”å›ä»£ç :" + responseCode;
             }
-            else if (lang.Equals("ÈÕÓï"))
+            else if (lang.Equals("æ—¥è¯­"))
             {
-                _callback = "¤¢¤Î¥Á¥ã¥Ã¥ÈGPT¤Î¥Ğ¥«¤á¤¬†–î}¤¬Æğ¤³¤Ã¤¿£¡¤´¤á¤ó¤Ê¤µ¤¤¡¢¤·¤Ğ¤é¤¯¤ª´ı¤Á¤¯¤À¤µ¤¤" + "    ‘ø¤¹¥³©`¥É:" + responseCode;
+                _callback = "ã‚ã®ãƒãƒ£ãƒƒãƒˆGPTã®ãƒã‚«ã‚ãŒå•é¡ŒãŒèµ·ã“ã£ãŸï¼ã”ã‚ã‚“ãªã•ã„ã€ã—ã°ã‚‰ããŠå¾…ã¡ãã ã•ã„" + "    æˆ»ã™ã‚³ãƒ¼ãƒ‰:" + responseCode;
             }
         }
         else if (responseCode == 403)
         {
             Debug.Log(responseCode);
-            if (lang.Equals("ÖĞÎÄ"))
+            if (lang.Equals("ä¸­æ–‡"))
             {
-                _callback = "ÎÒµÄ·ÃÎÊ±»ChatGPT¾Ü¾øÁË" + "    ·µ»Ø´úÂë:" + responseCode;
+                _callback = "æˆ‘çš„è®¿é—®è¢«ChatGPTæ‹’ç»äº†" + "    è¿”å›ä»£ç :" + responseCode;
             }
-            else if (lang.Equals("ÈÕÓï"))
+            else if (lang.Equals("æ—¥è¯­"))
             {
-                _callback = "¥Á¥ã¥Ã¥ÈGPT¤¬Ë½¤Î¥¢¥¯¥»¥¹¤ò¾Ü·ñ¤·¤Ş¤·¤¿¡£" + "    ‘ø¤¹¥³©`¥É:" + responseCode;
+                _callback = "ãƒãƒ£ãƒƒãƒˆGPTãŒç§ã®ã‚¢ã‚¯ã‚»ã‚¹ã‚’æ‹’å¦ã—ã¾ã—ãŸã€‚" + "    æˆ»ã™ã‚³ãƒ¼ãƒ‰:" + responseCode;
             }
         }
         else
         {
             Debug.Log(responseCode);
-            if (lang.Equals("ÖĞÎÄ"))
+            if (lang.Equals("ä¸­æ–‡"))
             {
-                _callback = "ÎÒÓöµ½ÁËÎÒÒ²½âÊÍ²»Çå³şµÄÎÊÌâ£¬Çë¹ı¶ÎÊ±¼äÔÙÀ´ÕÒÎÒ°É" + "    ·µ»Ø´úÂë:" + responseCode;
+                _callback = "æˆ‘é‡åˆ°äº†æˆ‘ä¹Ÿè§£é‡Šä¸æ¸…æ¥šçš„é—®é¢˜ï¼Œè¯·è¿‡æ®µæ—¶é—´å†æ¥æ‰¾æˆ‘å§" + "    è¿”å›ä»£ç :" + responseCode;
             }
-            else if (lang.Equals("ÈÕÓï"))
+            else if (lang.Equals("æ—¥è¯­"))
             {
-                _callback = "¤³¤Î†–î}¤ÏË½¤Ë¤â¤Ï¤¸¤á¤ÆÒŠ¤Æ¤«¤é¡¢½â›Q¤Ç¤­¤Ê¤¤¤Î¤Ç¡¢¤·¤Ğ¤é¤¯¤·¤Æ¤«¤é¤Ş¤¿À´¤Æ¤Í" + "    ‘ø¤¹¥³©`¥É:" + responseCode;
+                _callback = "ã“ã®å•é¡Œã¯ç§ã«ã‚‚ã¯ã˜ã‚ã¦è¦‹ã¦ã‹ã‚‰ã€è§£æ±ºã§ããªã„ã®ã§ã€ã—ã°ã‚‰ãã—ã¦ã‹ã‚‰ã¾ãŸæ¥ã¦ã­" + "    æˆ»ã™ã‚³ãƒ¼ãƒ‰:" + responseCode;
             }
 
         }
@@ -139,8 +135,8 @@ public class Msg_Validate : MonoBehaviour
     }
 
     /// <summary>
-    /// ÊÇ·ñ´¥·¢µã¸èÄ£Ê½¼ì²é
-    /// return »Ø¸´ĞÅÏ¢
+    /// æ˜¯å¦è§¦å‘ç‚¹æ­Œæ¨¡å¼æ£€æŸ¥
+    /// return å›å¤ä¿¡æ¯
     /// </summary>
     public string musicSelectionModeCheck(string msg)
     {
@@ -148,35 +144,35 @@ public class Msg_Validate : MonoBehaviour
         Debug.Log(msg);
 
         string returnMsg = "";
-        if (msg.IndexOf("#½øÈëµã¸èÄ£Ê½") != -1 
-            || msg.IndexOf("££µã¸è¥â©`¥É") != -1 
-            || msg.IndexOf("#ßMÈëµã¸è") != -1 
-            || msg.IndexOf("££ßMÈëµã¸è") != -1 
-            || msg.IndexOf("#¸è¥â©`¥É¤ËÈë¤ë") != -1 
-            || msg.IndexOf("¸è¤¦¤³¤È¤Ç¤­¤Ş¤»") != -1 
-            || msg.IndexOf("¸è¤¦¤³¤È¤¬¤Ç¤­¤Ş¤»") != -1 
-            || msg.IndexOf("¸è¤¦¤³¤È¤Ï¤Ç¤­¤Ş¤»") != -1 
-            || msg.IndexOf("¸è¤¦ÄÜÁ¦¤Ï¤¢¤ê¤Ş¤»") != -1 
-            || msg.IndexOf("¸è¤¦ÄÜÁ¦¤¬¤¢¤ê¤Ş¤»") != -1
-            || msg.IndexOf("Ë½¤Ï¸èÊÖ¤Ç¤Ï¤¢¤ê¤Ş¤»") != -1
-            || msg.IndexOf("Ë½¤Ï¸èÊÖ¤¸¤ã¤Ê") != -1
-            || msg.IndexOf("¸è¤¦™CÄÜ¤Ï³Ö¤Ã¤Æ¤¤¤Ê¤¤") != -1
-            || msg.IndexOf("¸è¤¦™CÄÜ¤Ï¤¢¤ê¤Ş¤»") != -1)
+        if (msg.IndexOf("#è¿›å…¥ç‚¹æ­Œæ¨¡å¼") != -1
+            || msg.IndexOf("ï¼ƒç‚¹æ­Œãƒ¢ãƒ¼ãƒ‰") != -1
+            || msg.IndexOf("#é€²å…¥ç‚¹æ­Œ") != -1
+            || msg.IndexOf("ï¼ƒé€²å…¥ç‚¹æ­Œ") != -1
+            || msg.IndexOf("#æ­Œãƒ¢ãƒ¼ãƒ‰ã«å…¥ã‚‹") != -1
+            || msg.IndexOf("æ­Œã†ã“ã¨ã§ãã¾ã›") != -1
+            || msg.IndexOf("æ­Œã†ã“ã¨ãŒã§ãã¾ã›") != -1
+            || msg.IndexOf("æ­Œã†ã“ã¨ã¯ã§ãã¾ã›") != -1
+            || msg.IndexOf("æ­Œã†èƒ½åŠ›ã¯ã‚ã‚Šã¾ã›") != -1
+            || msg.IndexOf("æ­Œã†èƒ½åŠ›ãŒã‚ã‚Šã¾ã›") != -1
+            || msg.IndexOf("ç§ã¯æ­Œæ‰‹ã§ã¯ã‚ã‚Šã¾ã›") != -1
+            || msg.IndexOf("ç§ã¯æ­Œæ‰‹ã˜ã‚ƒãª") != -1
+            || msg.IndexOf("æ­Œã†æ©Ÿèƒ½ã¯æŒã£ã¦ã„ãªã„") != -1
+            || msg.IndexOf("æ­Œã†æ©Ÿèƒ½ã¯ã‚ã‚Šã¾ã›") != -1)
         {
             List<Tuple<string, string>> musicName = m_MusicPlayer.getRandomMusicName();
-            //È¥³ıÎÄ¼şÃû¿ªÍ·µÄXX.
+            //å»é™¤æ–‡ä»¶åå¼€å¤´çš„XX.
             string a = musicName[0].Item1.Substring(0, 3);
             string musicNameJP = musicName[0].Item1.Replace(a, "");
             string musicNameCN = musicName[0].Item2.Replace(a, "");
             m_Service.UnloadAsset(m_MusicPlayer.audioClip);
             m_MusicPlayer.audioClip = Resources.Load<AudioClip>("Music/" + musicName[0].Item1);
-            if (lang.Equals("ÖĞÎÄ"))
+            if (lang.Equals("ä¸­æ–‡"))
             {
-                returnMsg = "ºÃµÄ£¬ÄÇÎÒÎªÄã³ªÒ»Ê×¡¶"+ musicNameCN + "¡·°É";
+                returnMsg = "å¥½çš„ï¼Œé‚£æˆ‘ä¸ºä½ å”±ä¸€é¦–ã€Š" + musicNameCN + "ã€‹å§";
             }
-            else if (lang.Equals("ÈÕÓï"))
+            else if (lang.Equals("æ—¥è¯­"))
             {
-                returnMsg = "¤¸¤ã¡¢¡¸" + musicNameJP + "¡¹¤ò¸è¤¤¤Ş¤·¤ç¤¦";
+                returnMsg = "ã˜ã‚ƒã€ã€Œ" + musicNameJP + "ã€ã‚’æ­Œã„ã¾ã—ã‚‡ã†";
             }
             IsOutputTextMsg = true;
             IsPlayingMusic = true;
@@ -191,7 +187,7 @@ public class Msg_Validate : MonoBehaviour
     public void InputMsgValidate(string msg)
     {
         string lang = m_VITS_Player.langString;
-        if (msg.IndexOf("#ÇĞ»»±³¾°") != -1 || msg.IndexOf("#±³¾°Ìæ¤¨") != -1 || msg.IndexOf("££±³¾°Ìæ¤¨") != -1)
+        if (msg.IndexOf("#åˆ‡æ¢èƒŒæ™¯") != -1 || msg.IndexOf("#èƒŒæ™¯æ›¿ãˆ") != -1 || msg.IndexOf("ï¼ƒèƒŒæ™¯æ›¿ãˆ") != -1)
         {
             try
             {
@@ -204,7 +200,7 @@ public class Msg_Validate : MonoBehaviour
                 msg = "";
             }
         }
-        if (msg.IndexOf("#ÇĞ»»Á¢»æ") != -1 || msg.IndexOf("#Á¢¤Á½}Ìæ") != -1 || msg.IndexOf("££Á¢¤Á½}Ìæ") != -1)
+        if (msg.IndexOf("#åˆ‡æ¢ç«‹ç»˜") != -1 || msg.IndexOf("#ç«‹ã¡çµµæ›¿") != -1 || msg.IndexOf("ï¼ƒç«‹ã¡çµµæ›¿") != -1)
         {
             try
             {
@@ -217,27 +213,27 @@ public class Msg_Validate : MonoBehaviour
                 msg = "";
             }
         }
-        if (msg.IndexOf("#²¥·ÅÒôÀÖ") != -1 || msg.IndexOf("#Òô˜SÔÙÉú") != -1 || msg.IndexOf("££Òô˜SÔÙÉú") != -1)
+        if (msg.IndexOf("#æ’­æ”¾éŸ³ä¹") != -1 || msg.IndexOf("#éŸ³æ¥½å†ç”Ÿ") != -1 || msg.IndexOf("ï¼ƒéŸ³æ¥½å†ç”Ÿ") != -1)
         {
             try
             {
                 m_ChatScript.m_ChatHistory.Add(msg);
                 int i = int.Parse(msg.Replace(msg.Substring(0, 5), ""));
                 List<Tuple<string, string>> musicName = m_MusicPlayer.getMusicName(i);
-                //È¥³ıÎÄ¼şÃû¿ªÍ·µÄXX.
+                //å»é™¤æ–‡ä»¶åå¼€å¤´çš„XX.
                 string a = musicName[0].Item1.Substring(0, 3);
                 string musicNameJP = musicName[0].Item1.Replace(a, "");
                 string musicNameCN = musicName[0].Item2.Replace(a, "");
                 m_Service.UnloadAsset(m_MusicPlayer.audioClip);
                 m_MusicPlayer.audioClip = Resources.Load<AudioClip>("Music/" + musicName[0].Item1);
-                if (lang.Equals("ÖĞÎÄ"))
+                if (lang.Equals("ä¸­æ–‡"))
                 {
-                    m_ChatScript.CallBack("ºÃµÄ£¬ÄÇÎÒÎªÄã³ªÒ»Ê×¡¶" + musicNameCN + "¡·°É");
+                    m_ChatScript.CallBack("å¥½çš„ï¼Œé‚£æˆ‘ä¸ºä½ å”±ä¸€é¦–ã€Š" + musicNameCN + "ã€‹å§");
                     Debug.Log(musicNameCN);
                 }
-                else if (lang.Equals("ÈÕÓï"))
+                else if (lang.Equals("æ—¥è¯­"))
                 {
-                    m_ChatScript.CallBack("¤¸¤ã¡¢¡¸" + musicNameJP + "¡¹¤ò¸è¤¤¤Ş¤·¤ç¤¦");
+                    m_ChatScript.CallBack("ã˜ã‚ƒã€ã€Œ" + musicNameJP + "ã€ã‚’æ­Œã„ã¾ã—ã‚‡ã†");
                     Debug.Log(musicNameJP);
                 }
                 IsOutputTextMsg = true;
@@ -249,18 +245,18 @@ public class Msg_Validate : MonoBehaviour
                 msg = "";
             }
         }
-        if (msg.IndexOf("#°ïÖú") != -1 || msg.IndexOf("#h") != -1 || msg.IndexOf("££h") != -1)
+        if (msg.IndexOf("#å¸®åŠ©") != -1 || msg.IndexOf("#h") != -1 || msg.IndexOf("ï¼ƒh") != -1)
         {
             try
             {
                 m_ChatScript.m_ChatHistory.Add(msg);
-                if (lang.Equals("ÖĞÎÄ"))
+                if (lang.Equals("ä¸­æ–‡"))
                 {
-                    m_ChatScript.CallBack("ÊäÈë£º¡°#ÇĞ»»±³¾°0.XX¡±ÒÔÓÃÓÚÇĞ»»±³¾°Í¼Æ¬\nÊäÈë£º¡°#ÇĞ»»Á¢»æ0.XX¡±ÒÔÓÃÓÚÇĞ»»±³¾°Í¼Æ¬\nÊäÈë£º¡°#²¥·ÅÒôÀÖXX¡±ÒÔÓÃÓÚ²¥·ÅÖ¸¶¨ÒôÀÖ");
+                    m_ChatScript.CallBack("è¾“å…¥ï¼šâ€œ#åˆ‡æ¢èƒŒæ™¯0.XXâ€ä»¥ç”¨äºåˆ‡æ¢èƒŒæ™¯å›¾ç‰‡\nè¾“å…¥ï¼šâ€œ#åˆ‡æ¢ç«‹ç»˜0.XXâ€ä»¥ç”¨äºåˆ‡æ¢èƒŒæ™¯å›¾ç‰‡\nè¾“å…¥ï¼šâ€œ#æ’­æ”¾éŸ³ä¹XXâ€ä»¥ç”¨äºæ’­æ”¾æŒ‡å®šéŸ³ä¹");
                 }
-                else if (lang.Equals("ÈÕÓï"))
+                else if (lang.Equals("æ—¥è¯­"))
                 {
-                    m_ChatScript.CallBack("±³¾°»­Ïñ¤ÎÇĞ¤êÌæ¤¨¤Ï¡¸#±³¾°Ìæ¤¨0.XX¡¹¡£\n¥­¥ã¥é¥¯¥¿©`Á¢¤Á½}¤ÎÇĞ¤êÌæ¤¨¤Ï¡¸#Á¢¤Á½}Ìæ0.XX¡¹¡£\n Ö¸¶¨¤µ¤ìÒô˜S¤ÎÔÙÉú¤Ï¡¸#Òô˜SÔÙÉúXX¡¹¡£");
+                    m_ChatScript.CallBack("èƒŒæ™¯ç”»åƒã®åˆ‡ã‚Šæ›¿ãˆã¯ã€Œ#èƒŒæ™¯æ›¿ãˆ0.XXã€ã€‚\nã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ç«‹ã¡çµµã®åˆ‡ã‚Šæ›¿ãˆã¯ã€Œ#ç«‹ã¡çµµæ›¿0.XXã€ã€‚\n æŒ‡å®šã•ã‚ŒéŸ³æ¥½ã®å†ç”Ÿã¯ã€Œ#éŸ³æ¥½å†ç”ŸXXã€ã€‚");
                 }
                 msg = "";
             }
@@ -271,17 +267,17 @@ public class Msg_Validate : MonoBehaviour
         }
         inputMsgs = msg;
     }
-    
-    //ÊäÈë£ºstring
-    //ÒªÆ¥ÅäµÄÔ´Êı×éstring[]
-    //string[] can = { "ÄãÄÜ", "ÎªÎÒ" };
+
+    //è¾“å…¥ï¼šstring
+    //è¦åŒ¹é…çš„æºæ•°ç»„string[]
+    //string[] can = { "ä½ èƒ½", "ä¸ºæˆ‘" };
     //string[] canCmd = FindSimilarStrings(msg, can);
-    //²éÕÒÏàËÆµÄ×Ö·û´®
+    //æŸ¥æ‰¾ç›¸ä¼¼çš„å­—ç¬¦ä¸²
     public static string[] FindSimilarStrings(string input, string[] strings)
     {
-        int threshold = 2; // ¶¨ÒåÏàËÆĞÔµÄãĞÖµ£¬¼´Levenshtein¾àÀëµÄ×î´óÈİÈÌ´ÎÊı
+        int threshold = 2; // å®šä¹‰ç›¸ä¼¼æ€§çš„é˜ˆå€¼ï¼Œå³Levenshteinè·ç¦»çš„æœ€å¤§å®¹å¿æ¬¡æ•°
 
-        // ´æ´¢ÏàËÆ×Ö·û´®µÄÁĞ±í
+        // å­˜å‚¨ç›¸ä¼¼å­—ç¬¦ä¸²çš„åˆ—è¡¨
         List<string> similarStrings = new List<string>();
 
         foreach (string str in strings)
@@ -321,12 +317,12 @@ public class Msg_Validate : MonoBehaviour
 
         return dp[str1.Length, str2.Length];
     }
-    //»ñÈ¡´¦ÀíºóµÄÊäÈëĞÅÏ¢
+    //è·å–å¤„ç†åçš„è¾“å…¥ä¿¡æ¯
     public string getInputMsgs()
     {
         return inputMsgs;
     }
-    //»ñÈ¡´¦ÀíºóµÄÊä³öĞÅÏ¢
+    //è·å–å¤„ç†åçš„è¾“å‡ºä¿¡æ¯
     public string getOututMsgs()
     {
         return outputMsgs;

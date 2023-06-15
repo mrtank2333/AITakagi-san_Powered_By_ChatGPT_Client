@@ -83,7 +83,7 @@ namespace Live2D.Cubism.Framework.Expression
         public static CubismPlayingExpression Create(CubismModel model, CubismExpressionData expressionData)
         {
             // Fail silently...
-            if(model == null || expressionData == null)
+            if (model == null || expressionData == null)
             {
                 return null;
             }
@@ -109,7 +109,7 @@ namespace Live2D.Cubism.Framework.Expression
             ret.Value = new float[parameterCount];
             ret.Blend = new CubismParameterBlendMode[parameterCount];
 
-            for(var i = 0; i < parameterCount; ++i)
+            for (var i = 0; i < parameterCount; ++i)
             {
                 ret.Destinations[i] = model.Parameters.FindById(expressionData.Parameters[i].Id);
                 ret.Value[i] = expressionData.Parameters[i].Value;

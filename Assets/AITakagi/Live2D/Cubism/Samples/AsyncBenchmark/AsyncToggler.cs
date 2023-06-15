@@ -27,7 +27,7 @@ namespace Live2D.Cubism.Samples.AsyncBenchmark
         /// </summary>
         private bool LastEnableSync { get; set; }
 
-       #region Unity Event Handling
+        #region Unity Event Handling
 
         /// <summary>
         /// Called by Unity. Enables/Disables async task handler.

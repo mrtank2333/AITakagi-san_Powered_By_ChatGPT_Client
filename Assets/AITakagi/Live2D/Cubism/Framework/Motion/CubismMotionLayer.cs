@@ -123,7 +123,7 @@ namespace Live2D.Cubism.Framework.Motion
         /// Set state transition finished.
         /// </summary>
         /// <param name="isFinished">State is finished.</param>
-        public void SetStateTransitionFinished(bool isFinished) {}
+        public void SetStateTransitionFinished(bool isFinished) { }
 
         /// <summary>
         /// Stop animation.
@@ -195,9 +195,9 @@ namespace Live2D.Cubism.Framework.Motion
             var isNotFound = true;
             var instanceId = -1;
             var events = clip.events;
-            for(var i = 0; i < events.Length; ++i)
+            for (var i = 0; i < events.Length; ++i)
             {
-                if(events[i].functionName != "InstanceId")
+                if (events[i].functionName != "InstanceId")
                 {
                     continue;
                 }
@@ -207,7 +207,7 @@ namespace Live2D.Cubism.Framework.Motion
 
             for (int i = 0; i < _cubismFadeMotionList.MotionInstanceIds.Length; i++)
             {
-                if(_cubismFadeMotionList.MotionInstanceIds[i] != instanceId)
+                if (_cubismFadeMotionList.MotionInstanceIds[i] != instanceId)
                 {
                     continue;
                 }
@@ -227,7 +227,7 @@ namespace Live2D.Cubism.Framework.Motion
                 break;
             }
 
-            if(isNotFound)
+            if (isNotFound)
             {
                 Debug.LogError("CubismMotionController : Not found motion from CubismFadeMotionList.");
             }
@@ -302,7 +302,7 @@ namespace Live2D.Cubism.Framework.Motion
         /// </summary>
         public void StopAllAnimation()
         {
-            for(var i = _playingMotions.Count - 1; i >= 0; --i)
+            for (var i = _playingMotions.Count - 1; i >= 0; --i)
             {
                 StopAnimation(i);
             }
@@ -325,7 +325,7 @@ namespace Live2D.Cubism.Framework.Motion
         public void SetStateSpeed(int index, float speed)
         {
             // Fail silently...
-            if(index < 0)
+            if (index < 0)
             {
                 return;
             }
@@ -347,12 +347,12 @@ namespace Live2D.Cubism.Framework.Motion
         public void SetStateIsLoop(int index, bool isLoop)
         {
             // Fail silently...
-            if(index < 0)
+            if (index < 0)
             {
                 return;
             }
 
-            if(isLoop)
+            if (isLoop)
             {
                 _motionState.ClipPlayable.SetDuration(double.MaxValue);
             }

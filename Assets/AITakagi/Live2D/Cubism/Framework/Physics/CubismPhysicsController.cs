@@ -6,10 +6,10 @@
  */
 
 
-using System;
 using Live2D.Cubism.Core;
 using Live2D.Cubism.Rendering;
 using Live2D.Cubism.Rendering.Masking;
+using System;
 using UnityEngine;
 
 
@@ -193,6 +193,6 @@ namespace Live2D.Cubism.Framework.Physics
             }
         }
 
-    #endregion
+        #endregion
     }
 }

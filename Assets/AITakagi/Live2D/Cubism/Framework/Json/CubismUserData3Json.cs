@@ -65,19 +65,19 @@ namespace Live2D.Cubism.Framework.Json
                 switch (targetType)
                 {
                     case CubismUserDataTargetType.ArtMesh:
-                    {
-                        // Only drawables.
-                        if (UserData[i].Target == "ArtMesh")
                         {
-                            userDataList.Add(body);
-                        }
+                            // Only drawables.
+                            if (UserData[i].Target == "ArtMesh")
+                            {
+                                userDataList.Add(body);
+                            }
 
-                        break;
-                    }
+                            break;
+                        }
                     default:
-                    {
-                        break;
-                    }
+                        {
+                            break;
+                        }
                 }
             }
 

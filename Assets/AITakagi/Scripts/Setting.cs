@@ -1,10 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System.IO;
-using System.Security.Cryptography;
-using System.Text;
-using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Setting : MonoBehaviour
@@ -73,7 +68,7 @@ public class Setting : MonoBehaviour
 
         //string m = MachineCode.GetMachineCodeString();
         //Debug.Log(m);
-        
+
     }
 
     void Update()
@@ -103,7 +98,7 @@ public class Setting : MonoBehaviour
                 {
                     m_InputAPI.text = "你的APIKey可能不正确，请检查你的APIKey或尝试使用白嫖模式";
                 }
-                
+
                 AutoBrainwashing = int.Parse(strs[1].Replace("AutoBrainwashing=", ""));
                 //设置开关催眠的按钮状态
                 setAutoBrainwashingSW();
@@ -191,7 +186,7 @@ public class Setting : MonoBehaviour
             AutoBrainwashingNum = int.Parse(m_InputNumberOfConversations.text);
             //SaveConfigFile();
             m_SaveButton.SetActive(true);
-            Debug.Log("设置轮数成功！当前设置的轮数为："+ AutoBrainwashingNum);
+            Debug.Log("设置轮数成功！当前设置的轮数为：" + AutoBrainwashingNum);
         }
         catch
         {
@@ -201,7 +196,7 @@ public class Setting : MonoBehaviour
             m_SaveButton.SetActive(true);
             Debug.Log("输入轮数无法转换成整数，自动设置为3轮");
         }
-        
+
     }
 
     //设置自定义链接
@@ -221,7 +216,7 @@ public class Setting : MonoBehaviour
 
 
     }
-    
+
     public string getApikey()
     {
         if (linkMode.Equals("0"))
@@ -264,10 +259,10 @@ public class Setting : MonoBehaviour
     //保存config文件
     public void SaveConfigFile()
     {
-        File.WriteAllText(configFile, 
-            "APIKey=" + apiKey + 
-            "\nAutoBrainwashing=" + AutoBrainwashing + 
-            "\nAutoBrainwashingNum=" + m_InputNumberOfConversations.text + 
+        File.WriteAllText(configFile,
+            "APIKey=" + apiKey +
+            "\nAutoBrainwashing=" + AutoBrainwashing +
+            "\nAutoBrainwashingNum=" + m_InputNumberOfConversations.text +
             "\nOtherAPIUrl=" + m_InputOtherURL.text);
         GetConfig();
     }

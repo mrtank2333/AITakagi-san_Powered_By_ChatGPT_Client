@@ -8,7 +8,6 @@
 
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 
 namespace Live2D.Cubism.Editor.Deleters

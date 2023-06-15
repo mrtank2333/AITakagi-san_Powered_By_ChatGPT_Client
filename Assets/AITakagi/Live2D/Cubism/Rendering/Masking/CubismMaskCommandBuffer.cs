@@ -71,7 +71,7 @@ namespace Live2D.Cubism.Rendering.Masking
             {
                 proxy = new GameObject(proxyName)
                 {
-                     hideFlags = HideFlags.HideAndDontSave
+                    hideFlags = HideFlags.HideAndDontSave
                 };
 
 

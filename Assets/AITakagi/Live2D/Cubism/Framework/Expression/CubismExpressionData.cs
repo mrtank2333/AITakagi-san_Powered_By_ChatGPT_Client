@@ -76,12 +76,12 @@ namespace Live2D.Cubism.Framework.Expression
             expressionData.FadeOutTime = json.FadeOutTime;
             expressionData.Parameters = new SerializableExpressionParameter[json.Parameters.Length];
 
-            for(var i = 0; i < json.Parameters.Length; ++i)
+            for (var i = 0; i < json.Parameters.Length; ++i)
             {
                 expressionData.Parameters[i].Id = json.Parameters[i].Id;
                 expressionData.Parameters[i].Value = json.Parameters[i].Value;
 
-                switch(json.Parameters[i].Blend)
+                switch (json.Parameters[i].Blend)
                 {
                     case "Add":
                         expressionData.Parameters[i].Blend = CubismParameterBlendMode.Additive;

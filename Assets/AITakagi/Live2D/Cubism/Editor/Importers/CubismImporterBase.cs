@@ -45,7 +45,7 @@ namespace Live2D.Cubism.Editor.Importers
             assetImporter.SaveAndReimport();
         }
 
-#region ICubismImporter
+        #region ICubismImporter
 
         /// <summary>
         /// Sets the asset path.
@@ -71,6 +71,6 @@ namespace Live2D.Cubism.Editor.Importers
             Save();
         }
 
-#endregion
+        #endregion
     }
 }

@@ -1,6 +1,4 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -56,7 +54,7 @@ public class Raw_Image : MonoBehaviour
                 }
             }
         }
-        
+
     }
 
     //屏幕渐隐效果方法     
@@ -65,7 +63,7 @@ public class Raw_Image : MonoBehaviour
         //rawImage.color = Color.Lerp(rawImage.color, Color.clear, fadeSpeed * Time.deltaTime);
         m_RawImage.CrossFadeAlpha(1f, fadeSpeeds / 2, false);
         fadeTime = fadeSpeeds;
-        times1 = (fadeSpeeds/2) + 0.1f;
+        times1 = (fadeSpeeds / 2) + 0.1f;
         Sts = "1";
         timestart = true;
         Debug.Log("FadeToClear OK");
@@ -75,7 +73,7 @@ public class Raw_Image : MonoBehaviour
     public void FadeToBlack(float fadeSpeeds)
     {
 
-       
+
         m_RawImage.CrossFadeAlpha(0f, fadeSpeeds / 2, false);
 
         //times1 = (fadeSpeeds/2) + 0.2f;

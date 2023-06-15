@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,14 +30,6 @@ public class MusicPlayer : MonoBehaviour
     //服务
     [SerializeField] private Service m_Service;
 
-    /*    /// <summary>
-        /// <br>int sNum：季度番号</br>
-        /// </summary>
-        public int sNum;
-        /// <summary>
-        /// <br>int num：序号</br>
-        /// </summary>
-        public int num;*/
     /// <summary>
     /// musicName：音乐名称
     /// </summary>
@@ -142,15 +133,11 @@ public class MusicPlayer : MonoBehaviour
                 Sts = "1";
                 m_Raw_Image.FadeToClear(2f);
                 Debug.Log("Sts=" + Sts);
-
-
-
             }
             else if (Sts == "1" && m_Raw_Image.Sts.Equals("2"))
             {
                 Sts = "2";
 
-                //m_ChatScript.MusicTakagi();
                 //显示停止播放按钮
                 m_musicStop.SetActive(true);
                 //根据曲目不同切换背景板
@@ -295,76 +282,11 @@ public class MusicPlayer : MonoBehaviour
 
     /// <summary>
     /// <br>获取指定歌名</br>
-    /// <br>int sNum：季度番号</br>
     /// <br>int num：序号</br>
     /// <br>return 歌名</br>
     /// </summary>
     public List<Tuple<string, string>> getMusicName(int num)
     {
-        /*//音乐名字
-        string musicName = "";
-        if (sNum == 1)
-        {
-            Tuple<int, string, string, float, float> result = MusicAll.Find(x => x.Item1 == sNum * 10 + num);
-            if (result != null)
-            {
-                musicName = result.Item2;
-                Debug.Log(musicName);
-            }
-            else
-            {
-                Debug.Log("Not found");
-            }
-        }
-        else if (sNum == 2)
-        {
-            Tuple<int, string, string, float, float> result = MusicAll.Find(x => x.Item1 == sNum * 10 + num);
-            if (result != null)
-            {
-                musicName = result.Item2;
-            }
-            else
-            {
-                Debug.Log("Not found");
-            }
-        }
-        else if (sNum == 3)
-        {
-            Tuple<int, string, string, float, float> result = MusicAll.Find(x => x.Item1 == sNum * 10 + num);
-            if (result != null)
-            {
-                musicName = result.Item2;
-            }
-            else
-            {
-                Debug.Log("Not found");
-            }
-        }
-        else if (sNum == 4)
-        {
-            Tuple<int, string, string, float, float> result = MusicAll.Find(x => x.Item1 == sNum * 10 + num);
-            if (result != null)
-            {
-                musicName = result.Item2;
-            }
-            else
-            {
-                Debug.Log("Not found");
-            }
-        }
-        else if (sNum == 5)
-        {
-            Tuple<int, string, string, float, float> result = MusicAll.Find(x => x.Item1 == sNum * 10 + num);
-            if (result != null)
-            {
-                musicName = result.Item2;
-            }
-            else
-            {
-                Debug.Log("Not found");
-            }
-        }
-        return musicName;*/
         List<Tuple<string, string>> MusicName = new List<Tuple<string, string>>();
         try
         {
@@ -430,65 +352,6 @@ public class MusicPlayer : MonoBehaviour
             return MusicName;
         }
     }
-
-
-/*    /// <summary>
-    /// 指定歌曲播放
-    /// </summary>
-    public void musicPlayer()
-    {
-        AudioClip audioClip = Resources.Load<AudioClip>("Music/" + getMusicName());
-        if (m_AudioSource.isPlaying)
-        {
-            m_AudioSource.Stop();
-        }
-        else if (!m_AudioSource.isPlaying)
-        {
-            m_AudioSource.clip = audioClip;
-            m_Msg_Validate.IsPlayingMusic = true;
-
-            m_Raw_Image.FadeToClear(2f);
-            //m_Fade_Control.ChangeTime(); 
-            m_AudioSource.Play(); // 播放音频文件
-            m_Msg_Validate.IsPlayingMusic = false;
-            Debug.Log("Music/" + getMusicName());
-            Debug.Log(audioClip);
-            string a = "";
-            if (m_Msg_Validate.IsOutputTextMsg)
-            {
-                a += "正在逐字输出聊天框文字信息,";
-            }
-            else
-            {
-                a += "不在逐字输出聊天框文字信息,";
-            }
-
-            if (m_Msg_Validate.IsOutputWAVEncoding)
-            {
-                a += "回复信息音频正在合成,";
-            }
-            else
-            {
-                a += "回复信息音频合成结束,";
-            }
-            if (m_Msg_Validate.IsPlayingMusic)
-            {
-                a += "正在播放音乐,";
-            }
-            else
-            {
-                a += "音乐播放已结束,";
-            }
-
-            Debug.Log(a);
-        }
-
-        *//*
-        path += "/Music/" + getMusicName() + ".mp3";
-        //使用www类加载播放
-        StartCoroutine(LoadMusicClip(path));
-        *//*
-    }*/
 
     /// <summary>
     /// 通过歌曲名指定歌曲播放
@@ -556,7 +419,7 @@ public class MusicPlayer : MonoBehaviour
 
     /*
         /// <summary>
-        /// 读取音频并播放
+        /// 读取外文件夹音频并播放
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns></returns>

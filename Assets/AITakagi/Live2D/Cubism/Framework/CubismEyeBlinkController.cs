@@ -125,7 +125,7 @@ namespace Live2D.Cubism.Framework
         /// </summary>
         private void LateUpdate()
         {
-            if(!HasUpdateController)
+            if (!HasUpdateController)
             {
                 OnLateUpdate();
             }

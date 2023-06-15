@@ -214,19 +214,19 @@ namespace Live2D.Cubism.Rendering
         {
             get
             {
-                #if UNITY_EDITOR
+#if UNITY_EDITOR
                 if (!Application.isPlaying)
                 {
                     return MeshRenderer.sharedMaterial;
                 }
-                #endif
+#endif
 
 
                 return MeshRenderer.material;
             }
             set
             {
-                #if UNITY_EDITOR
+#if UNITY_EDITOR
                 if (!Application.isPlaying)
                 {
                     MeshRenderer.sharedMaterial = value;
@@ -234,7 +234,7 @@ namespace Live2D.Cubism.Rendering
 
                     return;
                 }
-                #endif
+#endif
 
 
                 MeshRenderer.material = value;

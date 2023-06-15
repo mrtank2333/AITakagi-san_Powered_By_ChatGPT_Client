@@ -485,7 +485,7 @@ namespace Live2D.Cubism.Rendering
         {
             get
             {
-                if (_renderers== null)
+                if (_renderers == null)
                 {
                     _renderers = Model.Drawables.GetComponentsMany<CubismRenderer>();
                 }
@@ -699,7 +699,7 @@ namespace Live2D.Cubism.Rendering
         public void OnLateUpdate()
         {
             // Fail silently...
-            if(!enabled)
+            if (!enabled)
             {
                 return;
             }
@@ -777,7 +777,7 @@ namespace Live2D.Cubism.Rendering
         /// </summary>
         private void LateUpdate()
         {
-            if(!HasUpdateController)
+            if (!HasUpdateController)
             {
                 OnLateUpdate();
             }

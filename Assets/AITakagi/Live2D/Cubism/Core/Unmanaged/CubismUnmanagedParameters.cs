@@ -82,7 +82,7 @@ namespace Live2D.Cubism.Core.Unmanaged
 
             length = CubismCoreDll.GetParameterCount(modelPtr);
             Ids = new string[length];
-            var _ids = (IntPtr *)(CubismCoreDll.GetParameterIds(modelPtr));
+            var _ids = (IntPtr*)(CubismCoreDll.GetParameterIds(modelPtr));
             for (var i = 0; i < length; ++i)
             {
                 Ids[i] = Marshal.PtrToStringAnsi(_ids[i]);
@@ -111,7 +111,7 @@ namespace Live2D.Cubism.Core.Unmanaged
             length = CubismCoreDll.GetParameterCount(modelPtr);
             length2 = new CubismUnmanagedIntArrayView(CubismCoreDll.GetParameterKeyCounts(modelPtr), length);
             KeyValues = new CubismUnmanagedFloatArrayView[length];
-            var _keyValues = (IntPtr *)(CubismCoreDll.GetParameterKeyValues(modelPtr));
+            var _keyValues = (IntPtr*)(CubismCoreDll.GetParameterKeyValues(modelPtr));
             for (var i = 0; i < length; ++i)
             {
                 KeyValues[i] = new CubismUnmanagedFloatArrayView(_keyValues[i], length2[i]);

@@ -25,7 +25,7 @@ namespace Live2D.Cubism.Editor.Importers
         {
             get
             {
-                if(_assetPaths == null)
+                if (_assetPaths == null)
                 {
                     _assetPaths = new List<string>();
                 }

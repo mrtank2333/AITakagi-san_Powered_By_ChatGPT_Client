@@ -61,10 +61,10 @@ namespace Live2D.Cubism.Framework.Json
             {
                 instance.SubRigs[i] = new CubismPhysicsSubRig
                 {
-                    Name          = idNameTable[i].Name,
-                    Input         = ReadInput(PhysicsSettings[i].Input),
-                    Output        = ReadOutput(PhysicsSettings[i].Output),
-                    Particles     = ReadParticles(PhysicsSettings[i].Vertices),
+                    Name = idNameTable[i].Name,
+                    Input = ReadInput(PhysicsSettings[i].Input),
+                    Output = ReadOutput(PhysicsSettings[i].Output),
+                    Particles = ReadParticles(PhysicsSettings[i].Vertices),
                     Normalization = ReadNormalization(PhysicsSettings[i].Normalization)
                 };
             }
@@ -82,14 +82,14 @@ namespace Live2D.Cubism.Framework.Json
             {
                 dataArray[i] = new CubismPhysicsInput
                 {
-                    SourceId            = source[i].Source.Id,
-                    AngleScale          = 0.0f,
-                    ScaleOfTranslation  = Vector2.zero,
-                    Weight              = source[i].Weight,
-                    SourceComponent     = (CubismPhysicsSourceComponent) Enum.Parse(
+                    SourceId = source[i].Source.Id,
+                    AngleScale = 0.0f,
+                    ScaleOfTranslation = Vector2.zero,
+                    Weight = source[i].Weight,
+                    SourceComponent = (CubismPhysicsSourceComponent)Enum.Parse(
                         typeof(CubismPhysicsSourceComponent), source[i].Type
                         ),
-                    IsInverted          = source[i].Reflect
+                    IsInverted = source[i].Reflect
                 };
             }
 
@@ -106,16 +106,16 @@ namespace Live2D.Cubism.Framework.Json
             {
                 dataArray[i] = new CubismPhysicsOutput
                 {
-                    DestinationId        = source[i].Destination.Id,
-                    ParticleIndex        = source[i].VertexIndex,
-                    TranslationScale     = Vector2.zero,
-                    AngleScale           = source[i].Scale,
-                    Weight               = source[i].Weight,
-                    SourceComponent      = (CubismPhysicsSourceComponent) Enum.Parse(
+                    DestinationId = source[i].Destination.Id,
+                    ParticleIndex = source[i].VertexIndex,
+                    TranslationScale = Vector2.zero,
+                    AngleScale = source[i].Scale,
+                    Weight = source[i].Weight,
+                    SourceComponent = (CubismPhysicsSourceComponent)Enum.Parse(
                         typeof(CubismPhysicsSourceComponent), source[i].Type
                         ),
-                    IsInverted           = source[i].Reflect,
-                    ValueBelowMinimum    = 0.0f,
+                    IsInverted = source[i].Reflect,
+                    ValueBelowMinimum = 0.0f,
                     ValueExceededMaximum = 0.0f
                 };
             }
@@ -138,15 +138,15 @@ namespace Live2D.Cubism.Framework.Json
                         x = source[i].Position.X,
                         y = source[i].Position.Y
                     },
-                    Mobility          = source[i].Mobility,
-                    Delay             = source[i].Delay,
-                    Acceleration      = source[i].Acceleration,
-                    Radius            = source[i].Radius,
-                    Position          = Vector2.zero,
-                    LastPosition      = Vector2.zero,
-                    LastGravity       = Vector2.down,
-                    Force             = Vector2.zero,
-                    Velocity          = Vector2.zero
+                    Mobility = source[i].Mobility,
+                    Delay = source[i].Delay,
+                    Acceleration = source[i].Acceleration,
+                    Radius = source[i].Radius,
+                    Position = Vector2.zero,
+                    LastPosition = Vector2.zero,
+                    LastGravity = Vector2.down,
+                    Force = Vector2.zero,
+                    Velocity = Vector2.zero
                 };
             }
 
@@ -174,7 +174,7 @@ namespace Live2D.Cubism.Framework.Json
             };
         }
 
-    #region Json Data
+        #region Json Data
 
         /// <summary>
         /// Json file format version.

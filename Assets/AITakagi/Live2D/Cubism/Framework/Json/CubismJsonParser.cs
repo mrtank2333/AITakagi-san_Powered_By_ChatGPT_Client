@@ -221,7 +221,7 @@ namespace Live2D.Cubism.Framework.Json
                         default: break; // skip char
                     }
                 }
-                EXIT_FOR_LOOP1:
+            EXIT_FOR_LOOP1:
 
                 if (!ok)
                 {
@@ -243,7 +243,7 @@ namespace Live2D.Cubism.Framework.Json
                         default: break; // skip char
                     }
                 }
-                EXIT_FOR_LOOP2:
+            EXIT_FOR_LOOP2:
 
                 if (!ok)
                 {
@@ -268,7 +268,7 @@ namespace Live2D.Cubism.Framework.Json
                         default: break; // skip
                     }
                 }
-                EXIT_FOR_LOOP3: ;
+            EXIT_FOR_LOOP3:;
 
             }
 
@@ -316,7 +316,7 @@ namespace Live2D.Cubism.Framework.Json
                         default: break; // skip
                     }
                 }
-                EXIT_FOR_LOOP3: ;
+            EXIT_FOR_LOOP3:;
             }
 
             throw new Exception("illegal end of ParseObject");
@@ -341,7 +341,7 @@ namespace Live2D.Cubism.Framework.Json
 
             // check minus
             var c = (char)(str[i] & 0xFF);
-            if(c == '-')
+            if (c == '-')
             {
                 minus = true;
                 i++;
@@ -374,7 +374,7 @@ namespace Live2D.Cubism.Framework.Json
                 }
             }
 
-            EXIT_FOR_LOOP:
+        EXIT_FOR_LOOP:
 
             // check floating point part
             if (period)
@@ -404,7 +404,7 @@ namespace Live2D.Cubism.Framework.Json
                     mul *= 0.1;
                 }
 
-                EXIT_FOR_LOOP2:;
+            EXIT_FOR_LOOP2:;
             }
 
             if (minus)
@@ -477,7 +477,8 @@ namespace Live2D.Cubism.Framework.Json
                         return obj;
                     case ',': // Array separator
                         throw new Exception("illegal ',' position");
-                    case '\n': line_count++;
+                    case '\n':
+                        line_count++;
                         break;
                     case ' ':
                     case '\t':
@@ -681,7 +682,7 @@ namespace Live2D.Cubism.Framework.Json
         /// <returns>Key value from dictionary.</returns>
         public Value Get(string key)
         {
-            if(_object is Dictionary<string, Value>)
+            if (_object is Dictionary<string, Value>)
             {
                 if (((Dictionary<string, Value>)_object).ContainsKey(key)) return (Value)((Dictionary<string, Value>)_object)[key];
             }
@@ -706,7 +707,7 @@ namespace Live2D.Cubism.Framework.Json
         /// <returns>Value of dictionary type.</returns>
         public Dictionary<string, Value> ToMap()
         {
-            return (_object is Dictionary<string, Value>) ? (Dictionary<string, Value>)_object: null;
+            return (_object is Dictionary<string, Value>) ? (Dictionary<string, Value>)_object : null;
         }
 
         #endregion
@@ -716,12 +717,12 @@ namespace Live2D.Cubism.Framework.Json
         /// <summary>
         /// Confirm the type.
         /// </summary>
-        public bool isNull()    { return _object == null; }
+        public bool isNull() { return _object == null; }
         public bool isBoolean() { return _object is Boolean; }
-        public bool isDouble()  { return _object is Double; }
-        public bool isString()  { return _object is string; }
-        public bool isArray()   { return _object is List<Value>; }
-        public bool isMap()     { return _object is Dictionary<string, Value>; }
+        public bool isDouble() { return _object is Double; }
+        public bool isString() { return _object is string; }
+        public bool isArray() { return _object is List<Value>; }
+        public bool isMap() { return _object is Dictionary<string, Value>; }
 
         #endregion
     }

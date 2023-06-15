@@ -10,7 +10,6 @@ using Live2D.Cubism.Core;
 using Live2D.Cubism.Framework;
 using Live2D.Cubism.Framework.Expression;
 using Live2D.Cubism.Framework.Json;
-using Live2D.Cubism.Framework.Motion;
 using Live2D.Cubism.Framework.MotionFade;
 using Live2D.Cubism.Framework.Pose;
 using System;
@@ -50,7 +49,7 @@ namespace Live2D.Cubism.Editor.Importers
                 if (_modelPrefab == null)
                 {
                     _modelPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(AssetPath.Replace(".model3.json", ".prefab"));
-                    if(_modelPrefab != null)
+                    if (_modelPrefab != null)
                     {
                         _modelPrefabGuid = AssetGuid.GetGuid(_modelPrefab);
                     }
@@ -312,7 +311,7 @@ namespace Live2D.Cubism.Editor.Importers
                 }
 
                 // skip copy original workflow component.
-                if(sourceComponent.GetType() == typeof(CubismUpdateController)
+                if (sourceComponent.GetType() == typeof(CubismUpdateController)
                 || sourceComponent.GetType() == typeof(CubismFadeController)
                 || sourceComponent.GetType() == typeof(CubismExpressionController)
                 || sourceComponent.GetType() == typeof(CubismPoseController)

@@ -20535,8 +20535,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 938.085, y: 0}
-  m_SizeDelta: {x: 1856.17, y: 0}
+  m_AnchoredPosition: {x: 874.585, y: 0}
+  m_SizeDelta: {x: 1729.17, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1423120622
 MonoBehaviour:
@@ -22037,15 +22037,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8003b042b75b3164f8c1ce1bb186354b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PostDataSetting:
-    model: text-davinci-003
-    prompt: 
-    max_tokens: 1024
-    temperature: 0.9
-    top_p: 1
-    frequency_penalty: 0
-    presence_penalty: 0.6
-    stop: 
   m_ChatPanel: {fileID: 952192933}
   m_InputWord: {fileID: 972203032}
   m_InputAPI: {fileID: 2036790982}

@@ -55,7 +55,7 @@ namespace Live2D.Cubism.Framework.Motion
             // Connect AnimationClip Playable
             ret.ClipPlayable = AnimationClipPlayable.Create(playableGraph, ret.Clip);
 
-            if(!isLoop)
+            if (!isLoop)
             {
                 ret.ClipPlayable.SetDuration(clip.length - 0.0001f);
             }

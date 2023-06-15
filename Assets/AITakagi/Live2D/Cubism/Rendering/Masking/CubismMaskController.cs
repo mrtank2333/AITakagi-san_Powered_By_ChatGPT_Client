@@ -215,7 +215,7 @@ namespace Live2D.Cubism.Rendering.Masking
         /// </summary>
         private void LateUpdate()
         {
-            if(!HasUpdateController)
+            if (!HasUpdateController)
             {
                 OnLateUpdate();
             }

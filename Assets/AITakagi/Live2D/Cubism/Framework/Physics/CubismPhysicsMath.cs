@@ -80,12 +80,12 @@ namespace Live2D.Cubism.Framework.Physics
 
 
         /// <summary>
-    /// Gets angle from both vector direction.
-    /// </summary>
-    /// <param name="from">From vector.</param>
-    /// <param name="to">To vector.</param>
-    /// <returns>Angle of degrees.</returns>
-    public static float DirectionToDegrees(Vector2 from, Vector2 to)
+        /// Gets angle from both vector direction.
+        /// </summary>
+        /// <param name="from">From vector.</param>
+        /// <param name="to">To vector.</param>
+        /// <returns>Angle of degrees.</returns>
+        public static float DirectionToDegrees(Vector2 from, Vector2 to)
         {
             var radian = DirectionToRadian(from, to);
             var degree = (float)RadianToDegrees(radian);

@@ -62,7 +62,7 @@ namespace Live2D.Cubism.Framework.Expression
         private void StartExpression()
         {
             // Fail silently...
-            if(ExpressionsList == null || ExpressionsList.CubismExpressionObjects == null)
+            if (ExpressionsList == null || ExpressionsList.CubismExpressionObjects == null)
             {
                 return;
             }
@@ -71,7 +71,7 @@ namespace Live2D.Cubism.Framework.Expression
             _lastExpressionIndex = CurrentExpressionIndex;
 
             // Set last expression end time
-            if(_playingExpressions.Count > 0)
+            if (_playingExpressions.Count > 0)
             {
                 var playingExpression = _playingExpressions[_playingExpressions.Count - 1];
                 playingExpression.ExpressionEndTime = playingExpression.ExpressionUserTime + playingExpression.FadeOutTime;
@@ -79,14 +79,14 @@ namespace Live2D.Cubism.Framework.Expression
             }
 
             // Fail silently...
-            if(CurrentExpressionIndex < 0 || CurrentExpressionIndex >= ExpressionsList.CubismExpressionObjects.Length)
+            if (CurrentExpressionIndex < 0 || CurrentExpressionIndex >= ExpressionsList.CubismExpressionObjects.Length)
             {
                 return;
             }
 
             var palyingExpression = CubismPlayingExpression.Create(_model, ExpressionsList.CubismExpressionObjects[CurrentExpressionIndex]);
 
-            if(palyingExpression == null)
+            if (palyingExpression == null)
             {
                 return;
             }
@@ -117,19 +117,19 @@ namespace Live2D.Cubism.Framework.Expression
         public void OnLateUpdate()
         {
             // Fail silently...
-            if(!enabled || _model == null)
+            if (!enabled || _model == null)
             {
                 return;
             }
 
             // Start expression when current expression changed.
-            if(CurrentExpressionIndex != _lastExpressionIndex)
+            if (CurrentExpressionIndex != _lastExpressionIndex)
             {
                 StartExpression();
             }
 
             // Update expression
-            for(var expressionIndex = 0; expressionIndex < _playingExpressions.Count; ++expressionIndex)
+            for (var expressionIndex = 0; expressionIndex < _playingExpressions.Count; ++expressionIndex)
             {
                 var playingExpression = _playingExpressions[expressionIndex];
 
@@ -149,15 +149,15 @@ namespace Live2D.Cubism.Framework.Expression
                 playingExpression.Weight = fadeIn * fadeOut;
 
                 // Apply value.
-                for(var i = 0; i < playingExpression.Destinations.Length; ++i)
+                for (var i = 0; i < playingExpression.Destinations.Length; ++i)
                 {
                     // Fail silently...
-                    if(playingExpression.Destinations[i] == null)
+                    if (playingExpression.Destinations[i] == null)
                     {
                         continue;
                     }
 
-                    switch(playingExpression.Blend[i])
+                    switch (playingExpression.Blend[i])
                     {
                         case CubismParameterBlendMode.Additive:
                             playingExpression.Destinations[i].AddToValue(playingExpression.Value[i], playingExpression.Weight);
@@ -179,9 +179,9 @@ namespace Live2D.Cubism.Framework.Expression
             }
 
             // Remove expression from playing expressions
-            for(var expressionIndex = _playingExpressions.Count - 1; expressionIndex >= 0; --expressionIndex)
+            for (var expressionIndex = _playingExpressions.Count - 1; expressionIndex >= 0; --expressionIndex)
             {
-                if(_playingExpressions[expressionIndex].Weight > 0.0f)
+                if (_playingExpressions[expressionIndex].Weight > 0.0f)
                 {
                     continue;
                 }
@@ -209,7 +209,7 @@ namespace Live2D.Cubism.Framework.Expression
         /// </summary>
         private void LateUpdate()
         {
-            if(!HasUpdateController)
+            if (!HasUpdateController)
             {
                 OnLateUpdate();
             }

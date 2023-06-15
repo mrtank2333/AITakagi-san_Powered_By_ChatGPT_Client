@@ -69,7 +69,7 @@ namespace Live2D.Cubism.Editor.Inspectors
 
 
             resetPosition.width *= 0.25f;
-            resetPosition.x += (resetPosition.width*3f);
+            resetPosition.x += (resetPosition.width * 3f);
 
 
             if (GUI.Button(resetPosition, "Reset"))

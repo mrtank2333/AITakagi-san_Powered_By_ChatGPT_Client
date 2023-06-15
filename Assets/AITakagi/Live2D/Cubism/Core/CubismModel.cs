@@ -410,7 +410,7 @@ namespace Live2D.Cubism.Core
         }
 #endif
 
-#region Unity Event Handling
+        #region Unity Event Handling
 
         /// <summary>
         /// Called by Unity. Triggers <see langword="this"/> to update.
@@ -453,7 +453,7 @@ namespace Live2D.Cubism.Core
             TaskableModel.TryReadParameters(Parameters);
 
             // restore last frame parameters value and parts opacity.
-            if(_parameterStore != null)
+            if (_parameterStore != null)
             {
                 _parameterStore.RestoreParameters();
             }
@@ -584,6 +584,6 @@ namespace Live2D.Cubism.Core
             OnEnable();
         }
 
-#endregion
+        #endregion
     }
 }

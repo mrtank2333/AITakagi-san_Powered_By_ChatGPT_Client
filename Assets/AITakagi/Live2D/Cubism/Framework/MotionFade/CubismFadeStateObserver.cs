@@ -190,9 +190,9 @@ namespace Live2D.Cubism.Framework.MotionFade
 
                 var instanceId = -1;
                 var events = animatorClipInfo[i].clip.events;
-                for(var k = 0; k < events.Length; ++k)
+                for (var k = 0; k < events.Length; ++k)
                 {
-                    if(events[k].functionName != "InstanceId")
+                    if (events[k].functionName != "InstanceId")
                     {
                         continue;
                     }

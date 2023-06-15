@@ -135,7 +135,7 @@ namespace Live2D.Cubism.Framework.HarmonicMotion
 
             // Restore origin and range.
             var origin = MinimumValue + (NormalizedOrigin * ValueRange);
-            var range  = NormalizedRange * ValueRange;
+            var range = NormalizedRange * ValueRange;
 
 
             // Clamp the range so that it stays within the limits.
@@ -160,55 +160,55 @@ namespace Live2D.Cubism.Framework.HarmonicMotion
             switch (Direction)
             {
                 case CubismHarmonicMotionDirection.Left:
-                {
-                    if ((origin - range) >= MinimumValue)
                     {
-                        range /= 2;
-                        origin -= range;
-                    }
-                    else
-                    {
-                        range           = (origin - MinimumValue) / 2f;
-                        origin          = MinimumValue + range;
-                        NormalizedRange = (range * 2f)/ValueRange;
-                    }
+                        if ((origin - range) >= MinimumValue)
+                        {
+                            range /= 2;
+                            origin -= range;
+                        }
+                        else
+                        {
+                            range = (origin - MinimumValue) / 2f;
+                            origin = MinimumValue + range;
+                            NormalizedRange = (range * 2f) / ValueRange;
+                        }
 
 
-                    break;
-                }
+                        break;
+                    }
                 case CubismHarmonicMotionDirection.Right:
-                {
-                    if ((origin + range) <= MaximumValue)
                     {
-                        range  /= 2f;
-                        origin += range;
-                    }
-                    else
-                    {
-                        range           = (MaximumValue - origin) / 2f;
-                        origin          = MaximumValue - range;
-                        NormalizedRange = (range * 2f)/ValueRange;
-                    }
+                        if ((origin + range) <= MaximumValue)
+                        {
+                            range /= 2f;
+                            origin += range;
+                        }
+                        else
+                        {
+                            range = (MaximumValue - origin) / 2f;
+                            origin = MaximumValue - range;
+                            NormalizedRange = (range * 2f) / ValueRange;
+                        }
 
 
-                    break;
-                }
+                        break;
+                    }
                 default:
-                {
-                    break;
-                }
+                    {
+                        break;
+                    }
             }
 
 
             // Clamp both range and NormalizedRange.
             if ((origin - range) < MinimumValue)
             {
-                range           = origin - MinimumValue;
+                range = origin - MinimumValue;
                 NormalizedRange = range / ValueRange;
             }
             else if ((origin + range) > MaximumValue)
             {
-                range           = MaximumValue - origin;
+                range = MaximumValue - origin;
                 NormalizedRange = range / ValueRange;
             }
         }
